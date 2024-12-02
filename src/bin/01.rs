@@ -31,8 +31,7 @@ pub fn part_two(input: &str) -> Option<u32> {
         left_list
             .into_iter()
             .map(|num| num * counts.get(&num).copied().unwrap_or_default())
-            .sum::<u32>()
-            .into(),
+            .sum::<u32>(),
     )
 }
 

@@ -8,9 +8,11 @@ pub fn parse_line_pairs<T>(input: &str) -> (T, T)
 where
     T: FromIterator<u32> + Default + Extend<u32>,
 {
-    return input
+    let (first, second): (T, T) = input
         .lines()
         .filter_map(|line| line.split_whitespace().next_tuple())
         .map(|(n, m)| (n.parse::<u32>().unwrap(), m.parse::<u32>().unwrap()))
         .unzip();
+
+    (first, second)
 }
