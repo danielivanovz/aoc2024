@@ -62,9 +62,8 @@ pub fn part_two(input: &str) -> Option<u32> {
         re.captures_iter(input)
             .filter_map(Instruction::from_captures)
             .scan(true, |enabled, instr| Some(instr.apply(enabled)))
-            .filter_map(|x| x)
-            .sum::<u32>()
-            .into(),
+            .flatten()
+            .sum::<u32>(),
     )
 }
 
